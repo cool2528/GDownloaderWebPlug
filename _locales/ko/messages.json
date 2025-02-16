@@ -1,0 +1,217 @@
+{
+  "appName": {
+    "message": "GDownloader 다운로드 도우미"
+  },
+  "appDescription": {
+    "message": "고속 다운로드 도우미"
+  },
+  "downloadSettings": {
+    "message": "다운로드 설정"
+  },
+  "defaultDownloadPath": {
+    "message": "기본 다운로드 경로"
+  },
+  "maxThreads": {
+    "message": "서버당 최대 연결 수"
+  },
+  "takeOverDownloads": {
+    "message": "브라우저 다운로드 제어"
+  },
+  "takeOverDownloadsDesc": {
+    "message": "활성화하면 모든 다운로드가 aria2에 의해 처리됩니다"
+  },
+  "connectionSettings": {
+    "message": "연결 설정"
+  },
+  "aria2Secret": {
+    "message": "Aria2 RPC 시크릿"
+  },
+  "aria2Url": {
+    "message": "Aria2 RPC 주소"
+  },
+  "downloadStarted": {
+    "message": "다운로드 시작"
+  },
+  "downloadStartMessage": {
+    "message": "작업 다운로드가 시작되었습니다"
+  },
+  "downloadComplete": {
+    "message": "다운로드 완료"
+  },
+  "downloadCompleteMessage": {
+    "message": "작업 다운로드가 완료되었습니다"
+  },
+  "downloadError": {
+    "message": "다운로드 오류"
+  },
+  "downloadErrorMessage": {
+    "message": "다운로드 중 오류가 발생했습니다"
+  },
+  "connectionError": {
+    "message": "연결 오류"
+  },
+  "optionsTitle": {
+    "message": "GDownloader 설정"
+  },
+  "openSettings": {
+    "message": "설정 열기"
+  },
+  "toggleSniffing": {
+    "message": "리소스 감지 전환"
+  },
+  "enableSniffing": {
+    "message": "리소스 감지 활성화"
+  },
+  "disableSniffing": {
+    "message": "리소스 감지 비활성화"
+  },
+  "reconnect": {
+    "message": "다시 연결"
+  },
+  "checkingConnection": {
+    "message": "연결 확인 중..."
+  },
+  "maxThreadsDesc": {
+    "message": "aria2c의 max-connection-per-server 매개변수에 해당"
+  },
+  "aria2SecretDesc": {
+    "message": "aria2c의 --rpc-secret 매개변수에 해당, 설정하지 않은 경우 비워두세요"
+  },
+  "aria2UrlDesc": {
+    "message": "aria2c의 WebSocket RPC 주소"
+  },
+  "sniffingSettingsTitle": {
+    "message": "리소스 감지 설정"
+  },
+  "fileTypesLabel": {
+    "message": "허용된 파일 유형:"
+  },
+  "fileTypesPlaceholder": {
+    "message": "예: mp4,mp3,zip,rar,exe,pdf"
+  },
+  "enableSniffingLabel": {
+    "message": "리소스 감지 활성화"
+  },
+  "enableSniffingDesc": {
+    "message": "활성화하면 페이지의 다운로드 가능한 리소스를 자동으로 감지합니다"
+  },
+  "saveButton": {
+    "message": "설정 저장"
+  },
+  "resetButton": {
+    "message": "기본값으로 초기화"
+  },
+  "error": {
+    "message": "오류"
+  },
+  "processMessageError": {
+    "message": "메시지 처리 중 오류가 발생했습니다"
+  },
+  "websocketNotConnected": {
+    "message": "다운로드 서버에 연결할 수 없습니다. 서비스가 실행 중인지 확인해주세요"
+  },
+  "addedToAria2": {
+    "message": "aria2 다운로드 대기열에 추가됨: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "downloadPathRequired": {
+    "message": "다운로드 경로를 설정해주세요"
+  },
+  "invalidServerUrl": {
+    "message": "잘못된 서버 주소"
+  },
+  "connectionTestSuccess": {
+    "message": "연결 테스트 성공"
+  },
+  "connectionTestFailed": {
+    "message": "연결 테스트 실패"
+  },
+  "configSaved": {
+    "message": "설정이 저장되었습니다"
+  },
+  "configError": {
+    "message": "설정 오류"
+  },
+  "invalidResource": {
+    "message": "잘못된 다운로드 리소스"
+  },
+  "websocketConnectionFailed": {
+    "message": "다운로드 서버에 연결할 수 없습니다. 서비스가 실행 중인지 확인하세요"
+  },
+  "configureNow": {
+    "message": "지금 설정"
+  },
+  "example": {
+    "message": "예시"
+  },
+  "pathPermissionNote": {
+    "message": "참고: 디렉토리가 존재하고 쓰기 권한이 있는지 확인하세요"
+  },
+  "loadConfigError": {
+    "message": "설정 로드 실패"
+  },
+  "invalidThreadCount": {
+    "message": "스레드 수는 1-32 사이여야 합니다"
+  },
+  "invalidDownloadPath": {
+    "message": "유효한 다운로드 경로를 입력하세요"
+  },
+  "fileTypesSettingLabel": {
+    "message": "파일 유형 설정"
+  },
+  "fileTypesSettingHelp": {
+    "message": "다운로드 관리자가 처리할 파일 유형 선택"
+  },
+  "fileTypeImages": {
+    "message": "이미지 형식"
+  },
+  "fileTypeMedia": {
+    "message": "미디어 형식"
+  },
+  "fileTypeArchives": {
+    "message": "압축 파일"
+  },
+  "fileTypeDocuments": {
+    "message": "문서 형식"
+  },
+  "fileTypeExecutables": {
+    "message": "실행 파일 및 설치 프로그램"
+  },
+  "fileTypeDevelopment": {
+    "message": "개발 관련"
+  },
+  "fileTypeFonts": {
+    "message": "폰트 파일"
+  },
+  "downloadPathLabel": {
+    "message": "다운로드 경로:"
+  },
+  "maxThreadsLabel": {
+    "message": "최대 스레드 수:"
+  },
+  "apiKeyLabel": {
+    "message": "API 키:"
+  },
+  "serverUrlLabel": {
+    "message": "서버 주소:"
+  },
+  "maxThreadsHelp": {
+    "message": "각 다운로드 작업의 최대 스레드 수 설정(1-32)"
+  },
+  "apiKeyHelp": {
+    "message": "aria2 연결용 키"
+  },
+  "serverUrlHelp": {
+    "message": "aria2 RPC 서버 주소"
+  },
+  "takeOverDownloadsLabel": {
+    "message": "브라우저 다운로드 제어"
+  },
+  "testConnectionButton": {
+    "message": "연결 테스트"
+  }
+} 

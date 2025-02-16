@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1 data-i18n="optionsTitle"></h1>
+    
+    <!-- 基本设置 -->
+    <div class="form-group">
+      <label for="maxThreads" data-i18n="maxThreads"></label>
+      <input type="number" id="maxThreads" class="form-control" min="1" max="32" value="4">
+      <small class="help-text" data-i18n="maxThreadsDesc"></small>
+    </div>
+
+    <!-- 连接设置 -->
+    <div class="form-group">
+      <label for="apiKey" data-i18n="aria2Secret"></label>
+      <input type="text" id="apiKey" class="form-control">
+      <small class="help-text" data-i18n="aria2SecretDesc"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="serverUrl" data-i18n="aria2Url"></label>
+      <input type="text" id="serverUrl" class="form-control">
+      <small class="help-text" data-i18n="aria2UrlDesc"></small>
+      <button id="testButton" class="btn btn-info" data-i18n="testConnectionButton"></button>
+    </div>
+
+    <!-- 功能开关 -->
+    <div class="form-group">
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="enableSniffing">
+          <span data-i18n="enableSniffing"></span>
+        </label>
+      </div>
+      
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="takeOverDownloads">
+          <span data-i18n="takeOverDownloads"></span>
+        </label>
+        <small class="help-text" data-i18n="takeOverDownloadsDesc"></small>
+      </div>
+    </div>
+
+    <!-- 文件类型设置 -->
+    <div class="form-group">
+      <label for="fileTypes" data-i18n="fileTypesLabel"></label>
+      <input type="text" id="fileTypes" class="form-control" data-i18n-placeholder="fileTypesPlaceholder">
+      <small class="help-text" data-i18n="fileTypesSettingHelp"></small>
+    </div>
+
+    <!-- 按钮组 -->
+    <div class="button-group">
+      <button id="saveButton" class="btn btn-primary" data-i18n="saveButton"></button>
+      <button id="resetButton" class="btn btn-secondary" data-i18n="resetButton"></button>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html> 

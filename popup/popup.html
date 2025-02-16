@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GDownloader</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .status {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      background: #f5f5f5;
+    }
+
+    .status.connected {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .status.disconnected {
+      background: #ffebee;
+      color: #c62828;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 8px;
+    }
+
+    button {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      background: #2196F3;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background: #1976D2;
+    }
+
+    button.secondary {
+      background: #757575;
+    }
+
+    button.secondary:hover {
+      background: #616161;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="../icons/icon32.png" alt="Logo">
+    <h1 id="appTitle"></h1>
+  </div>
+
+  <div id="connectionStatus" class="status">
+    <span id="checkingConnection"></span>
+  </div>
+
+  <div class="buttons">
+    <button id="openOptions"></button>
+    <button id="toggleSniffing"></button>
+    <button id="reconnect" class="secondary"></button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 

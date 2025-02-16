@@ -1,0 +1,223 @@
+{
+  "appName": {
+    "message": "GDownloader 下载助手"
+  },
+  "appDescription": {
+    "message": "高速下载助手"
+  },
+  "downloadSettings": {
+    "message": "下载设置"
+  },
+  "defaultDownloadPath": {
+    "message": "默认下载路径"
+  },
+  "maxThreads": {
+    "message": "每个服务器最大连接数"
+  },
+  "takeOverDownloads": {
+    "message": "接管浏览器下载"
+  },
+  "takeOverDownloadsDesc": {
+    "message": "启用后，所有下载都会被 aria2 接管，不受文件类型限制"
+  },
+  "connectionSettings": {
+    "message": "通信设置"
+  },
+  "aria2Secret": {
+    "message": "Aria2 RPC Secret"
+  },
+  "aria2Url": {
+    "message": "Aria2 RPC 地址"
+  },
+  "downloadStarted": {
+    "message": "开始下载"
+  },
+  "downloadStartMessage": {
+    "message": "任务已开始下载"
+  },
+  "downloadComplete": {
+    "message": "下载完成"
+  },
+  "downloadCompleteMessage": {
+    "message": "任务已完成下载"
+  },
+  "downloadError": {
+    "message": "下载错误"
+  },
+  "downloadErrorMessage": {
+    "message": "下载任务出错"
+  },
+  "connectionError": {
+    "message": "连接错误"
+  },
+  "optionsTitle": {
+    "message": "GDownloader 设置"
+  },
+  "openSettings": {
+    "message": "打开设置"
+  },
+  "toggleSniffing": {
+    "message": "切换资源嗅探"
+  },
+  "enableSniffing": {
+    "message": "启用资源嗅探"
+  },
+  "disableSniffing": {
+    "message": "停用资源嗅探"
+  },
+  "reconnect": {
+    "message": "重新连接"
+  },
+  "checkingConnection": {
+    "message": "正在检查连接..."
+  },
+  "maxThreadsDesc": {
+    "message": "对应 aria2c 的 max-connection-per-server 参数"
+  },
+  "aria2SecretDesc": {
+    "message": "对应 aria2c 的 --rpc-secret 参数，如果未设置可留空"
+  },
+  "aria2UrlDesc": {
+    "message": "aria2c 的 WebSocket RPC 地址"
+  },
+  "sniffingSettingsTitle": {
+    "message": "资源嗅探设置"
+  },
+  "fileTypesLabel": {
+    "message": "允许的文件类型："
+  },
+  "fileTypesPlaceholder": {
+    "message": "例如: mp4,mp3,zip,rar,exe,pdf"
+  },
+  "enableSniffingLabel": {
+    "message": "启用资源嗅探"
+  },
+  "enableSniffingDesc": {
+    "message": "启用后，将自动检测页面中的下载资源"
+  },
+  "saveButton": {
+    "message": "保存设置"
+  },
+  "resetButton": {
+    "message": "重置默认"
+  },
+  "error": {
+    "message": "错误"
+  },
+  "processMessageError": {
+    "message": "处理消息时出错"
+  },
+  "websocketNotConnected": {
+    "message": "无法连接到下载服务器，请检查服务是否运行"
+  },
+  "addedToAria2": {
+    "message": "已添加到 aria2 下载队列: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "downloadPathRequired": {
+    "message": "请先在设置中配置下载路径"
+  },
+  "invalidServerUrl": {
+    "message": "无效的服务器地址"
+  },
+  "connectionTestSuccess": {
+    "message": "连接测试成功"
+  },
+  "connectionTestFailed": {
+    "message": "连接测试失败"
+  },
+  "configSaved": {
+    "message": "设置已保存"
+  },
+  "configError": {
+    "message": "设置错误"
+  },
+  "invalidResource": {
+    "message": "无效的下载资源"
+  },
+  "websocketConnectionFailed": {
+    "message": "无法连接到下载服务器，请检查服务是否运行"
+  },
+  "configureNow": {
+    "message": "立即设置"
+  },
+  "example": {
+    "message": "示例"
+  },
+  "pathPermissionNote": {
+    "message": "注意：请确保目录存在且有写入权限"
+  },
+  "loadConfigError": {
+    "message": "加载配置失败"
+  },
+  "invalidThreadCount": {
+    "message": "线程数必须在1-32之间"
+  },
+  "invalidDownloadPath": {
+    "message": "请输入有效的下载路径"
+  },
+  "fileTypesSettingLabel": {
+    "message": "文件类型设置"
+  },
+  "fileTypesSettingHelp": {
+    "message": "选择需要下载管理器接管的文件类型"
+  },
+  "fileTypeImages": {
+    "message": "图片格式"
+  },
+  "fileTypeMedia": {
+    "message": "音视频格式"
+  },
+  "fileTypeArchives": {
+    "message": "压缩文件"
+  },
+  "fileTypeDocuments": {
+    "message": "文档格式"
+  },
+  "fileTypeExecutables": {
+    "message": "可执行文件和安装包"
+  },
+  "fileTypeDevelopment": {
+    "message": "开发相关"
+  },
+  "fileTypeFonts": {
+    "message": "字体文件"
+  },
+  "downloadPathLabel": {
+    "message": "下载路径："
+  },
+  "maxThreadsLabel": {
+    "message": "最大线程数："
+  },
+  "apiKeyLabel": {
+    "message": "API密钥："
+  },
+  "serverUrlLabel": {
+    "message": "服务器地址："
+  },
+  "maxThreadsHelp": {
+    "message": "设置每个下载任务的最大线程数（1-32）"
+  },
+  "apiKeyHelp": {
+    "message": "用于连接 aria2 的密钥"
+  },
+  "serverUrlHelp": {
+    "message": "aria2 RPC 服务器地址"
+  },
+  "takeOverDownloadsLabel": {
+    "message": "拦截浏览器下载"
+  },
+  "testConnectionButton": {
+    "message": "测试连接"
+  },
+  "connectionTimeout": {
+    "message": "连接超时，请检查服务器地址是否正确"
+  },
+  "invalidResponse": {
+    "message": "服务器返回无效响应"
+  }
+} 

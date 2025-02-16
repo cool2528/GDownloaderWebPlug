@@ -1,0 +1,190 @@
+{
+  "appName": {
+    "message": "GDownloader ダウンロードアシスタント"
+  },
+  "appDescription": {
+    "message": "高速ダウンロードアシスタント"
+  },
+  "downloadSettings": {
+    "message": "ダウンロード設定"
+  },
+  "defaultDownloadPath": {
+    "message": "デフォルトのダウンロードパス"
+  },
+  "maxThreads": {
+    "message": "サーバーごとの最大接続数"
+  },
+  "takeOverDownloads": {
+    "message": "ブラウザのダウンロードを制御"
+  },
+  "takeOverDownloadsDesc": {
+    "message": "有効にすると、すべてのダウンロードがaria2で処理されます"
+  },
+  "connectionSettings": {
+    "message": "接続設定"
+  },
+  "aria2Secret": {
+    "message": "Aria2 RPC シークレット"
+  },
+  "aria2Url": {
+    "message": "Aria2 RPC アドレス"
+  },
+  "downloadStarted": {
+    "message": "ダウンロード開始"
+  },
+  "downloadStartMessage": {
+    "message": "タスクのダウンロードを開始しました"
+  },
+  "downloadComplete": {
+    "message": "ダウンロード完了"
+  },
+  "downloadCompleteMessage": {
+    "message": "タスクのダウンロードが完了しました"
+  },
+  "downloadError": {
+    "message": "ダウンロードエラー"
+  },
+  "downloadErrorMessage": {
+    "message": "ダウンロード中にエラーが発生しました"
+  },
+  "connectionError": {
+    "message": "接続エラー"
+  },
+  "optionsTitle": {
+    "message": "GDownloader 設定"
+  },
+  "openSettings": {
+    "message": "設定を開く"
+  },
+  "toggleSniffing": {
+    "message": "リソース検出の切り替え"
+  },
+  "enableSniffing": {
+    "message": "リソース検出を有効化"
+  },
+  "disableSniffing": {
+    "message": "リソース検出を無効化"
+  },
+  "reconnect": {
+    "message": "再接続"
+  },
+  "checkingConnection": {
+    "message": "接続を確認中..."
+  },
+  "maxThreadsDesc": {
+    "message": "aria2cのmax-connection-per-serverパラメータに対応"
+  },
+  "aria2SecretDesc": {
+    "message": "aria2cの--rpc-secretパラメータに対応、未設定の場合は空白"
+  },
+  "aria2UrlDesc": {
+    "message": "aria2cのWebSocket RPCアドレス"
+  },
+  "sniffingSettingsTitle": {
+    "message": "リソース検出設定"
+  },
+  "fileTypesLabel": {
+    "message": "許可されるファイルタイプ："
+  },
+  "fileTypesPlaceholder": {
+    "message": "例: mp4,mp3,zip,rar,exe,pdf"
+  },
+  "enableSniffingLabel": {
+    "message": "リソース検出を有効化"
+  },
+  "enableSniffingDesc": {
+    "message": "有効にすると、ページ内のダウンロード可能なリソースを自動検出します"
+  },
+  "saveButton": {
+    "message": "設定を保存"
+  },
+  "resetButton": {
+    "message": "デフォルトに戻す"
+  },
+  "error": {
+    "message": "エラー"
+  },
+  "processMessageError": {
+    "message": "メッセージの処理中にエラーが発生しました"
+  },
+  "websocketNotConnected": {
+    "message": "WebSocket が接続されていません"
+  },
+  "addedToAria2": {
+    "message": "aria2 ダウンロードキューに追加: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "downloadPathRequired": {
+    "message": "ダウンロードパスを設定してください"
+  },
+  "invalidServerUrl": {
+    "message": "無効なサーバーアドレス"
+  },
+  "connectionTestSuccess": {
+    "message": "接続テスト成功"
+  },
+  "connectionTestFailed": {
+    "message": "接続テスト失敗"
+  },
+  "configSaved": {
+    "message": "設定を保存しました"
+  },
+  "configError": {
+    "message": "設定エラー"
+  },
+  "invalidResource": {
+    "message": "無効なダウンロードリソース"
+  },
+  "websocketConnectionFailed": {
+    "message": "ダウンロードサーバーに接続できません。サービスが実行中か確認してください"
+  },
+  "configureNow": {
+    "message": "今すぐ設定"
+  },
+  "example": {
+    "message": "例"
+  },
+  "pathPermissionNote": {
+    "message": "注意：ディレクトリが存在し、書き込み権限があることを確認してください"
+  },
+  "loadConfigError": {
+    "message": "設定の読み込みに失敗しました"
+  },
+  "invalidThreadCount": {
+    "message": "スレッド数は1-32の間で指定してください"
+  },
+  "invalidDownloadPath": {
+    "message": "有効なダウンロードパスを入力してください"
+  },
+  "fileTypesSettingLabel": {
+    "message": "ファイルタイプ設定"
+  },
+  "fileTypesSettingHelp": {
+    "message": "ダウンロードマネージャーで管理するファイルタイプを選択"
+  },
+  "fileTypeImages": {
+    "message": "画像フォーマット"
+  },
+  "fileTypeMedia": {
+    "message": "メディアフォーマット"
+  },
+  "fileTypeArchives": {
+    "message": "圧縮ファイル"
+  },
+  "fileTypeDocuments": {
+    "message": "文書フォーマット"
+  },
+  "fileTypeExecutables": {
+    "message": "実行ファイルとインストーラー"
+  },
+  "fileTypeDevelopment": {
+    "message": "開発関連"
+  },
+  "fileTypeFonts": {
+    "message": "フォントファイル"
+  }
+} 

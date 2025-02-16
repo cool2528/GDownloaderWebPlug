@@ -1,0 +1,217 @@
+{
+  "appName": {
+    "message": "GDownloader"
+  },
+  "appDescription": {
+    "message": "High-speed Download Assistant"
+  },
+  "downloadSettings": {
+    "message": "Download Settings"
+  },
+  "defaultDownloadPath": {
+    "message": "Default Download Path"
+  },
+  "maxThreads": {
+    "message": "Max Connections Per Server"
+  },
+  "takeOverDownloads": {
+    "message": "Take Over Browser Downloads"
+  },
+  "takeOverDownloadsDesc": {
+    "message": "When enabled, all downloads will be handled by aria2"
+  },
+  "connectionSettings": {
+    "message": "Connection Settings"
+  },
+  "aria2Secret": {
+    "message": "Aria2 RPC Secret"
+  },
+  "aria2Url": {
+    "message": "Aria2 RPC URL"
+  },
+  "downloadStarted": {
+    "message": "Download Started"
+  },
+  "downloadStartMessage": {
+    "message": "Task has started downloading"
+  },
+  "downloadComplete": {
+    "message": "Download Complete"
+  },
+  "downloadCompleteMessage": {
+    "message": "Task has been downloaded successfully"
+  },
+  "downloadError": {
+    "message": "Download Error"
+  },
+  "downloadErrorMessage": {
+    "message": "Error occurred during download"
+  },
+  "error": {
+    "message": "Error"
+  },
+  "processMessageError": {
+    "message": "Error processing message"
+  },
+  "websocketNotConnected": {
+    "message": "WebSocket not connected"
+  },
+  "addedToAria2": {
+    "message": "Added to aria2 download queue: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "connectionError": {
+    "message": "Connection Error"
+  },
+  "optionsTitle": {
+    "message": "GDownloader Settings"
+  },
+  "openSettings": {
+    "message": "Open Settings"
+  },
+  "toggleSniffing": {
+    "message": "Toggle Resource Sniffing"
+  },
+  "enableSniffing": {
+    "message": "Enable Resource Sniffing"
+  },
+  "disableSniffing": {
+    "message": "Disable Resource Sniffing"
+  },
+  "reconnect": {
+    "message": "Reconnect"
+  },
+  "checkingConnection": {
+    "message": "Checking connection..."
+  },
+  "maxThreadsDesc": {
+    "message": "Corresponds to aria2c's max-connection-per-server parameter"
+  },
+  "aria2SecretDesc": {
+    "message": "Corresponds to aria2c's --rpc-secret parameter, leave empty if not set"
+  },
+  "aria2UrlDesc": {
+    "message": "WebSocket RPC address for aria2c"
+  },
+  "sniffingSettingsTitle": {
+    "message": "Resource Sniffing Settings"
+  },
+  "fileTypesLabel": {
+    "message": "Allowed File Types:"
+  },
+  "fileTypesPlaceholder": {
+    "message": "e.g.: mp4,mp3,zip,rar,exe,pdf"
+  },
+  "enableSniffingLabel": {
+    "message": "Enable Resource Sniffing"
+  },
+  "enableSniffingDesc": {
+    "message": "When enabled, downloadable resources will be automatically detected"
+  },
+  "saveButton": {
+    "message": "Save Settings"
+  },
+  "resetButton": {
+    "message": "Reset to Default"
+  },
+  "downloadPathRequired": {
+    "message": "Please configure download path in settings"
+  },
+  "invalidServerUrl": {
+    "message": "Invalid server URL"
+  },
+  "connectionTestSuccess": {
+    "message": "Connection test successful"
+  },
+  "connectionTestFailed": {
+    "message": "Connection test failed"
+  },
+  "configSaved": {
+    "message": "Settings saved"
+  },
+  "configError": {
+    "message": "Configuration error"
+  },
+  "invalidResource": {
+    "message": "Invalid download resource"
+  },
+  "websocketConnectionFailed": {
+    "message": "Unable to connect to download server, please check if the service is running"
+  },
+  "configureNow": {
+    "message": "Configure Now"
+  },
+  "example": {
+    "message": "Example"
+  },
+  "pathPermissionNote": {
+    "message": "Note: Please ensure the directory exists and has write permissions"
+  },
+  "loadConfigError": {
+    "message": "Failed to load configuration"
+  },
+  "invalidThreadCount": {
+    "message": "Thread count must be between 1-32"
+  },
+  "invalidDownloadPath": {
+    "message": "Please enter a valid download path"
+  },
+  "fileTypesSettingLabel": {
+    "message": "File Type Settings"
+  },
+  "fileTypesSettingHelp": {
+    "message": "Select file types to be managed by the downloader"
+  },
+  "fileTypeImages": {
+    "message": "Image Formats"
+  },
+  "fileTypeMedia": {
+    "message": "Media Formats"
+  },
+  "fileTypeArchives": {
+    "message": "Archive Files"
+  },
+  "fileTypeDocuments": {
+    "message": "Document Formats"
+  },
+  "fileTypeExecutables": {
+    "message": "Executables & Installers"
+  },
+  "fileTypeDevelopment": {
+    "message": "Development Files"
+  },
+  "fileTypeFonts": {
+    "message": "Font Files"
+  },
+  "downloadPathLabel": {
+    "message": "Download Path:"
+  },
+  "maxThreadsLabel": {
+    "message": "Max Threads:"
+  },
+  "apiKeyLabel": {
+    "message": "API Key:"
+  },
+  "serverUrlLabel": {
+    "message": "Server URL:"
+  },
+  "maxThreadsHelp": {
+    "message": "Set maximum threads per download task (1-32)"
+  },
+  "apiKeyHelp": {
+    "message": "Key for connecting to aria2"
+  },
+  "serverUrlHelp": {
+    "message": "aria2 RPC server address"
+  },
+  "takeOverDownloadsLabel": {
+    "message": "Take Over Browser Downloads"
+  },
+  "testConnectionButton": {
+    "message": "Test Connection"
+  }
+} 

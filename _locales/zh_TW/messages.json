@@ -1,0 +1,217 @@
+{
+  "appName": {
+    "message": "GDownloader 下載助手"
+  },
+  "appDescription": {
+    "message": "高速下載助手"
+  },
+  "downloadSettings": {
+    "message": "下載設置"
+  },
+  "defaultDownloadPath": {
+    "message": "預設下載路徑"
+  },
+  "maxThreads": {
+    "message": "每個伺服器最大連接數"
+  },
+  "takeOverDownloads": {
+    "message": "接管瀏覽器下載"
+  },
+  "takeOverDownloadsDesc": {
+    "message": "啟用後，所有下載都會被 aria2 接管，不受檔案類型限制"
+  },
+  "connectionSettings": {
+    "message": "通訊設置"
+  },
+  "aria2Secret": {
+    "message": "Aria2 RPC Secret"
+  },
+  "aria2Url": {
+    "message": "Aria2 RPC 地址"
+  },
+  "downloadStarted": {
+    "message": "開始下載"
+  },
+  "downloadStartMessage": {
+    "message": "任務已開始下載"
+  },
+  "downloadComplete": {
+    "message": "下載完成"
+  },
+  "downloadCompleteMessage": {
+    "message": "任務已完成下載"
+  },
+  "downloadError": {
+    "message": "下載錯誤"
+  },
+  "downloadErrorMessage": {
+    "message": "下載任務出錯"
+  },
+  "connectionError": {
+    "message": "連接錯誤"
+  },
+  "optionsTitle": {
+    "message": "GDownloader 設定"
+  },
+  "openSettings": {
+    "message": "開啟設置"
+  },
+  "toggleSniffing": {
+    "message": "切換資源嗅探"
+  },
+  "enableSniffing": {
+    "message": "啟用資源嗅探"
+  },
+  "disableSniffing": {
+    "message": "停用資源嗅探"
+  },
+  "reconnect": {
+    "message": "重新連接"
+  },
+  "checkingConnection": {
+    "message": "正在檢查連接..."
+  },
+  "maxThreadsDesc": {
+    "message": "對應 aria2c 的 max-connection-per-server 參數"
+  },
+  "aria2SecretDesc": {
+    "message": "對應 aria2c 的 --rpc-secret 參數，如果未設置可留空"
+  },
+  "aria2UrlDesc": {
+    "message": "aria2c 的 WebSocket RPC 地址"
+  },
+  "sniffingSettingsTitle": {
+    "message": "資源嗅探設置"
+  },
+  "fileTypesLabel": {
+    "message": "允許的檔案類型："
+  },
+  "fileTypesPlaceholder": {
+    "message": "例如: mp4,mp3,zip,rar,exe,pdf"
+  },
+  "enableSniffingLabel": {
+    "message": "啟用資源嗅探"
+  },
+  "enableSniffingDesc": {
+    "message": "啟用後，將自動檢測頁面中的下載資源"
+  },
+  "saveButton": {
+    "message": "儲存設置"
+  },
+  "resetButton": {
+    "message": "重置預設"
+  },
+  "error": {
+    "message": "錯誤"
+  },
+  "processMessageError": {
+    "message": "處理訊息時出錯"
+  },
+  "websocketNotConnected": {
+    "message": "WebSocket 未連接"
+  },
+  "addedToAria2": {
+    "message": "已添加到 aria2 下載佇列: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "downloadPathRequired": {
+    "message": "請先在設置中配置下載路徑"
+  },
+  "invalidServerUrl": {
+    "message": "無效的伺服器地址"
+  },
+  "connectionTestSuccess": {
+    "message": "連接測試成功"
+  },
+  "connectionTestFailed": {
+    "message": "連接測試失敗"
+  },
+  "configSaved": {
+    "message": "設置已儲存"
+  },
+  "configError": {
+    "message": "設置錯誤"
+  },
+  "invalidResource": {
+    "message": "無效的下載資源"
+  },
+  "websocketConnectionFailed": {
+    "message": "無法連接到下載伺服器，請檢查服務是否運行"
+  },
+  "configureNow": {
+    "message": "立即設置"
+  },
+  "example": {
+    "message": "示例"
+  },
+  "pathPermissionNote": {
+    "message": "注意：請確保目錄存在且有寫入權限"
+  },
+  "loadConfigError": {
+    "message": "加載配置失敗"
+  },
+  "invalidThreadCount": {
+    "message": "線程數必須在1-32之間"
+  },
+  "invalidDownloadPath": {
+    "message": "請輸入有效的下載路徑"
+  },
+  "fileTypesSettingLabel": {
+    "message": "檔案類型設定"
+  },
+  "fileTypesSettingHelp": {
+    "message": "選擇需要下載管理器接管的檔案類型"
+  },
+  "fileTypeImages": {
+    "message": "圖片格式"
+  },
+  "fileTypeMedia": {
+    "message": "音視頻格式"
+  },
+  "fileTypeArchives": {
+    "message": "壓縮檔案"
+  },
+  "fileTypeDocuments": {
+    "message": "文件格式"
+  },
+  "fileTypeExecutables": {
+    "message": "可執行檔案和安裝包"
+  },
+  "fileTypeDevelopment": {
+    "message": "開發相關"
+  },
+  "fileTypeFonts": {
+    "message": "字型檔案"
+  },
+  "downloadPathLabel": {
+    "message": "下載路徑："
+  },
+  "maxThreadsLabel": {
+    "message": "最大執行緒數："
+  },
+  "apiKeyLabel": {
+    "message": "API金鑰："
+  },
+  "serverUrlLabel": {
+    "message": "伺服器地址："
+  },
+  "maxThreadsHelp": {
+    "message": "設定每個下載任務的最大執行緒數（1-32）"
+  },
+  "apiKeyHelp": {
+    "message": "用於連接 aria2 的金鑰"
+  },
+  "serverUrlHelp": {
+    "message": "aria2 RPC 伺服器地址"
+  },
+  "takeOverDownloadsLabel": {
+    "message": "接管瀏覽器下載"
+  },
+  "testConnectionButton": {
+    "message": "測試連接"
+  }
+} 
