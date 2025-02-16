@@ -213,5 +213,14 @@
   },
   "testConnectionButton": {
     "message": "연결 테스트"
+  },
+  "toggleBrowserControl": {
+    "message": "다운로드 제어 전환"
+  },
+  "enableBrowserControl": {
+    "message": "다운로드 제어 활성화"
+  },
+  "disableBrowserControl": {
+    "message": "다운로드 제어 비활성화"
   }
 } 

@@ -84,10 +84,10 @@
     "message": "资源嗅探设置"
   },
   "fileTypesLabel": {
-    "message": "允许的文件类型："
+    "message": "支持的文件类型"
   },
   "fileTypesPlaceholder": {
-    "message": "例如: mp4,mp3,zip,rar,exe,pdf"
+    "message": "输入文件扩展名，用逗号分隔"
   },
   "enableSniffingLabel": {
     "message": "启用资源嗅探"
@@ -164,7 +164,7 @@
     "message": "文件类型设置"
   },
   "fileTypesSettingHelp": {
-    "message": "选择需要下载管理器接管的文件类型"
+    "message": "设置要拦截的文件类型，多个类型用英文逗号分隔"
   },
   "fileTypeImages": {
     "message": "图片格式"
@@ -219,5 +219,35 @@
   },
   "invalidResponse": {
     "message": "服务器返回无效响应"
+  },
+  "videoFiles": {
+    "message": "视频文件"
+  },
+  "audioFiles": {
+    "message": "音频文件"
+  },
+  "imageFiles": {
+    "message": "图片文件"
+  },
+  "documentFiles": {
+    "message": "文档文件"
+  },
+  "textFiles": {
+    "message": "文本文件"
+  },
+  "archiveFiles": {
+    "message": "压缩文件"
+  },
+  "executableFiles": {
+    "message": "可执行文件"
+  },
+  "toggleBrowserControl": {
+    "message": "切换下载接管"
+  },
+  "enableBrowserControl": {
+    "message": "启用下载接管"
+  },
+  "disableBrowserControl": {
+    "message": "停用下载接管"
   }
 } 

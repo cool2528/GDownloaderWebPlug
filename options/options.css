@@ -123,7 +123,9 @@ button:hover {
 }
 
 .file-type-category {
-  margin-bottom: 25px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .file-type-category:last-child {
@@ -279,4 +281,11 @@ label {
   border-color: #1a73e8;
   outline: none;
   box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.file-types-help {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
 } 

@@ -5,15 +5,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('openOptions').textContent = chrome.i18n.getMessage('openSettings');
   document.getElementById('toggleSniffing').textContent = chrome.i18n.getMessage('toggleSniffing');
   document.getElementById('reconnect').textContent = chrome.i18n.getMessage('reconnect');
+  document.getElementById('toggleBrowserControl').textContent = chrome.i18n.getMessage('toggleBrowserControl');
 
   const connectionStatus = document.getElementById('connectionStatus');
   const toggleSniffingBtn = document.getElementById('toggleSniffing');
   const reconnectBtn = document.getElementById('reconnect');
   const openOptionsBtn = document.getElementById('openOptions');
+  const toggleBrowserControlBtn = document.getElementById('toggleBrowserControl');
 
   // 加载配置
   const config = await chrome.storage.sync.get({
     enableSniffing: true,
+    takeOverDownloads: false,
     serverUrl: 'ws://localhost:16888/jsonrpc',
     apiKey: 'GDownload_secret'
   });
@@ -23,6 +26,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 检查连接状态
   checkConnectionStatus();
+
+  // 更新浏览器控制状态
+  updateBrowserControlStatus(config.takeOverDownloads);
 
   // 绑定事件处理
   toggleSniffingBtn.addEventListener('click', async () => {
@@ -39,6 +45,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   openOptionsBtn.addEventListener('click', () => {
     chrome.runtime.openOptionsPage();
+  });
+
+  // 更新浏览器控制状态
+  toggleBrowserControlBtn.addEventListener('click', async () => {
+    const { takeOverDownloads } = await chrome.storage.sync.get({ takeOverDownloads: false });
+    const newStatus = !takeOverDownloads;
+    
+    await chrome.storage.sync.set({ takeOverDownloads: newStatus });
+    updateBrowserControlStatus(newStatus);
   });
 
   // 更新嗅探状态UI
@@ -89,5 +104,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       connectionStatus.className = 'status disconnected';
       connectionStatus.textContent = '连接错误: ' + error.message;
     }
+  }
+
+  // 更新浏览器控制状态UI
+  function updateBrowserControlStatus(enabled) {
+    toggleBrowserControlBtn.textContent = enabled ? 
+      chrome.i18n.getMessage('disableBrowserControl') : 
+      chrome.i18n.getMessage('enableBrowserControl');
+    toggleBrowserControlBtn.style.background = enabled ? '#f44336' : '#2196F3';
   }
 }); 

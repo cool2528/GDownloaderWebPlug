@@ -101,10 +101,10 @@
     "message": "Resource Sniffing Settings"
   },
   "fileTypesLabel": {
-    "message": "Allowed File Types:"
+    "message": "Supported File Types"
   },
   "fileTypesPlaceholder": {
-    "message": "e.g.: mp4,mp3,zip,rar,exe,pdf"
+    "message": "Enter file extensions separated by commas"
   },
   "enableSniffingLabel": {
     "message": "Enable Resource Sniffing"
@@ -164,7 +164,7 @@
     "message": "File Type Settings"
   },
   "fileTypesSettingHelp": {
-    "message": "Select file types to be managed by the downloader"
+    "message": "Set file types to intercept, separate multiple types with commas"
   },
   "fileTypeImages": {
     "message": "Image Formats"
@@ -213,5 +213,35 @@
   },
   "testConnectionButton": {
     "message": "Test Connection"
+  },
+  "videoFiles": {
+    "message": "Video Files"
+  },
+  "audioFiles": {
+    "message": "Audio Files"
+  },
+  "imageFiles": {
+    "message": "Image Files"
+  },
+  "documentFiles": {
+    "message": "Document Files"
+  },
+  "textFiles": {
+    "message": "Text Files"
+  },
+  "archiveFiles": {
+    "message": "Archive Files"
+  },
+  "executableFiles": {
+    "message": "Executable Files"
+  },
+  "toggleBrowserControl": {
+    "message": "Toggle Download Control"
+  },
+  "enableBrowserControl": {
+    "message": "Enable Download Control"
+  },
+  "disableBrowserControl": {
+    "message": "Disable Download Control"
   }
 } 

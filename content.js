@@ -4,18 +4,24 @@ console.log('content.js 开始执行');
 let detector = null;
 
 // 确保在页面完全加载后初始化
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   if (!detector) {
-    detector = new ResourceDetector();
+    const config = await getConfig();
+    detector = new ResourceDetector(config);
     console.log('ResourceDetector 已初始化 (load)');
+    detector.checkElementForResources(document.body);
+    setupMutationObserver();
   }
 });
 
 // DOMContentLoaded 时也尝试初始化
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   if (!detector) {
-    detector = new ResourceDetector();
+    const config = await getConfig();
+    detector = new ResourceDetector(config);
     console.log('ResourceDetector 已初始化 (DOMContentLoaded)');
+    detector.checkElementForResources(document.body);
+    setupMutationObserver();
   }
 });
 
@@ -66,7 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
 chrome.storage.onChanged.addListener((changes) => {
   if (changes.enableSniffing || changes.fileTypes) {
     // 配置发生变化时重新初始化
-    detector = new ResourceDetector();
+    getConfig().then(config => {
+      detector = new ResourceDetector(config);
+    });
   }
 });
 
@@ -98,9 +106,79 @@ function checkElementForResources(element) {
   }
 }
 
-async function loadConfig() {
-  this.config = await chrome.storage.sync.get({
-    serverUrl: 'ws://localhost:16888/jsonrpc',
-    apiKey: 'GDownload_secret'
+// 从 background 获取配置
+async function getConfig() {
+  try {
+    const config = await chrome.storage.sync.get(null);
+    return config;
+  } catch (error) {
+    console.error('获取配置失败:', error);
+    return null;
+  }
+}
+
+// 初始化
+async function init() {
+  const config = await getConfig();
+  if (config) {
+    // 初始化资源检测器
+    const detector = new ResourceDetector(config);
+    // ... 其他初始化代码 ...
+  }
+}
+
+init();
+
+// 监听来自 background 的消息
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'RESOURCE_DETECTED') {
+    console.log('收到资源检测消息:', message.url);
+    if (window.ResourceDetector) {
+      window.ResourceDetector.addResource(message.url);
+    }
+  }
+});
+
+// 添加 MutationObserver 监听DOM变化
+function setupMutationObserver() {
+  if (!detector) return;
+  
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+      mutation.addedNodes.forEach(node => {
+        if (node.nodeType === 1) { // ELEMENT_NODE
+          detector.checkElementForResources(node);
+        }
+      });
+    });
   });
-} 
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['src', 'srcset', 'href', 'data']
+  });
+}
+
+// 添加全局样式
+const style = document.createElement('style');
+style.textContent = `
+  .gdownloader-btn {
+    position: absolute;
+    z-index: 999999;
+    background: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+  .gdownloader-btn:hover {
+    opacity: 1;
+  }
+`;
+document.head.appendChild(style); 

@@ -1,16 +1,22 @@
-// 定义默认配置
+// 直接在 background.js 中定义配置
 const DEFAULT_CONFIG = {
   maxThreads: 4,
   apiKey: 'GDownload_secret',
   serverUrl: 'ws://localhost:16888/jsonrpc',
-  fileTypes: 'mp4,mp3,zip,rar,exe,pdf',
+  fileTypes: 'mp4,mkv,avi,mov,wmv,flv,webm,' + // 视频
+            'mp3,wav,aac,ogg,flac,m4a,' +      // 音频
+            'jpg,jpeg,png,gif,bmp,webp,svg,' +  // 图片
+            'pdf,doc,docx,xls,xlsx,ppt,pptx,' + // 文档
+            'txt,md,json,xml,csv,' +            // 文本
+            'zip,rar,7z,tar,gz,xz,' +           // 压缩包
+            'exe,msi,dmg,pkg,deb,rpm',          // 安装包
   enableSniffing: true,
   takeOverDownloads: false
 };
 
 let config = DEFAULT_CONFIG;
 let wsConnection = null;
-let isConnecting = false;  // 添加连接状态标志
+let isConnecting = false;
 let reconnectTimer = null;
 
 // 验证配置
@@ -62,25 +68,26 @@ async function loadAndInitConfig() {
 }
 
 // 初始化配置
-async function initializeConfig() {
+async function initConfig() {
   try {
-    // 加载并初始化配置
-    await loadAndInitConfig();
+    const savedConfig = await chrome.storage.sync.get(DEFAULT_CONFIG);
+    config = { ...DEFAULT_CONFIG, ...savedConfig };
+    console.log('加载配置:', config);
   } catch (error) {
-    console.error('初始化配置失败:', error);
+    console.error('加载配置失败:', error);
   }
 }
 
-// 在扩展安装或启动时初始化
-chrome.runtime.onInstalled.addListener(() => {
-  initializeConfig();
-});
+// 启动时初始化
+initConfig();
 
-// 监听配置变更
-chrome.storage.onChanged.addListener((changes, namespace) => {
-  if (namespace === 'sync') {
+// 监听配置变化
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === 'sync') {
     for (let [key, { newValue }] of Object.entries(changes)) {
-      config[key] = newValue;
+      if (config.hasOwnProperty(key)) {
+        config[key] = newValue;
+      }
     }
     console.log('配置已更新:', config);
   }
@@ -232,11 +239,55 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   return true;
 });
 
+// 辅助函数：获取下载所需的 cookies
+async function getCookiesForDownload(resource) {
+  try {
+    // 检查 URL 是否有效
+    if (!resource?.url) {
+      console.warn('无效的资源 URL');
+      return '';
+    }
+
+    // 尝试解析 URL
+    try {
+      new URL(resource.url);
+    } catch (e) {
+      console.warn('无效的 URL 格式:', resource.url);
+      return '';
+    }
+
+    const downloadUrlCookies = await chrome.cookies.getAll({ url: resource.url });
+    let pageUrlCookies = [];
+    
+    if (resource.pageUrl) {
+      try {
+        pageUrlCookies = await chrome.cookies.getAll({ url: resource.pageUrl });
+      } catch (e) {
+        console.warn('获取页面 cookies 失败:', e);
+      }
+    }
+    
+    const allCookies = [...downloadUrlCookies];
+    pageUrlCookies.forEach(cookie => {
+      if (!allCookies.some(c => c.name === cookie.name)) {
+        allCookies.push(cookie);
+      }
+    });
+    
+    return allCookies.map(cookie => `${cookie.name}=${cookie.value}`).join('; ');
+  } catch (error) {
+    console.warn('获取 cookies 失败:', error);
+    // 即使获取 cookies 失败，返回空字符串继续下载
+    return '';
+  }
+}
+
 // 处理下载请求
 async function handleDownloadRequest(message, sendResponse) {
   try {
     // 1. 首先加载并验证配置
-    const config = await chrome.storage.sync.get(DEFAULT_CONFIG);
+    const result = await chrome.storage.sync.get(DEFAULT_CONFIG);
+    const config = result || DEFAULT_CONFIG;
     console.log('当前配置:', config);
 
     // 2. 验证 WebSocket 连接
@@ -252,8 +303,21 @@ async function handleDownloadRequest(message, sendResponse) {
       throw new Error(chrome.i18n.getMessage('invalidResource'));
     }
 
-    // 4. 获取 cookies
-    const cookies = await this.getCookiesForDownload(message.resource);
+    // 4. 获取 cookies（即使失败也继续）
+    let headers = [`User-Agent: ${navigator.userAgent}`];
+    let cookieString = '';
+    try {
+      cookieString = await getCookiesForDownload(message.resource);
+      if (cookieString) {
+        headers.push(`Cookie: ${cookieString}`);
+      }
+    } catch (error) {
+      console.warn('获取 cookies 失败，继续下载:', error);
+    }
+    
+    if (message.resource.pageUrl) {
+      headers.push(`Referer: ${message.resource.pageUrl}`);
+    }
     
     // 5. 构建下载请求
     const downloadRequest = {
@@ -261,12 +325,8 @@ async function handleDownloadRequest(message, sendResponse) {
       id: Date.now(),
       method: 'aria2.addUri',
       params: [`token:${config.apiKey}`, [message.resource.url], {
-        'max-connection-per-server': config.maxThreads.toString(),
-        header: [
-          `Cookie: ${cookies}`,
-          `User-Agent: ${navigator.userAgent}`,
-          `Referer: ${message.resource.pageUrl || ''}`
-        ],
+        'max-connection-per-server': config.maxThreads?.toString() || '4',
+        header: headers,
         out: message.resource.filename || '',
         'allow-overwrite': 'true'
       }]
@@ -288,26 +348,6 @@ async function handleDownloadRequest(message, sendResponse) {
       success: false,
       error: error.message
     });
-  }
-}
-
-// 辅助函数：获取下载所需的 cookies
-async function getCookiesForDownload(resource) {
-  try {
-    const downloadUrlCookies = await chrome.cookies.getAll({ url: resource.url });
-    const pageUrlCookies = await chrome.cookies.getAll({ url: resource.pageUrl });
-    
-    const allCookies = [...downloadUrlCookies];
-    pageUrlCookies.forEach(cookie => {
-      if (!allCookies.some(c => c.name === cookie.name)) {
-        allCookies.push(cookie);
-      }
-    });
-    
-    return allCookies.map(cookie => `${cookie.name}=${cookie.value}`).join('; ');
-  } catch (error) {
-    console.error('获取 cookies 失败:', error);
-    return '';
   }
 }
 

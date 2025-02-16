@@ -4,7 +4,13 @@ const DEFAULT_CONFIG = {
   maxThreads: 4,
   apiKey: 'GDownload_secret',
   serverUrl: 'ws://localhost:16888/jsonrpc',
-  fileTypes: 'mp4,mp3,zip,rar,exe,pdf',
+  fileTypes: 'mp4,mkv,avi,mov,wmv,flv,webm,' + // 视频
+            'mp3,wav,aac,ogg,flac,m4a,' +      // 音频
+            'jpg,jpeg,png,gif,bmp,webp,svg,' +  // 图片
+            'pdf,doc,docx,xls,xlsx,ppt,pptx,' + // 文档
+            'txt,md,json,xml,csv,' +            // 文本
+            'zip,rar,7z,tar,gz,xz,' +           // 压缩包
+            'exe,msi,dmg,pkg,deb,rpm',          // 安装包
   enableSniffing: true,
   takeOverDownloads: false
 };
@@ -40,6 +46,36 @@ function initializeI18n() {
   });
 }
 
+// 添加文件类型分类显示函数
+function getFileTypesCategories() {
+  return {
+    video: ['mp4', 'mkv', 'avi', 'mov', 'wmv', 'flv', 'webm'],
+    audio: ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a'],
+    image: ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'svg'],
+    document: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'],
+    text: ['txt', 'md', 'json', 'xml', 'csv'],
+    archive: ['zip', 'rar', '7z', 'tar', 'gz', 'xz'],
+    executable: ['exe', 'msi', 'dmg', 'pkg', 'deb', 'rpm']
+  };
+}
+
+// 添加文件类型提示显示
+function updateFileTypesHelp() {
+  const categories = getFileTypesCategories();
+  const helpText = document.getElementById('fileTypesHelp');
+  const currentLang = chrome.i18n.getUILanguage();
+  
+  let helpHtml = '';
+  for (const [category, extensions] of Object.entries(categories)) {
+    helpHtml += `<div class="file-type-category">
+      <strong>${chrome.i18n.getMessage(category + 'Files')}</strong>: 
+      ${extensions.join(', ')}
+    </div>`;
+  }
+  
+  helpText.innerHTML = helpHtml;
+}
+
 // 保存配置
 async function saveOptions() {
   try {
@@ -72,10 +108,7 @@ async function saveOptions() {
 // 加载配置
 async function loadOptions() {
   try {
-    // 初始化国际化文本
     initializeI18n();
-    
-    // 加载配置
     const config = await chrome.storage.sync.get(DEFAULT_CONFIG);
     
     // 填充表单
@@ -85,6 +118,18 @@ async function loadOptions() {
     document.getElementById('enableSniffing').checked = config.enableSniffing;
     document.getElementById('takeOverDownloads').checked = config.takeOverDownloads;
     document.getElementById('fileTypes').value = config.fileTypes;
+    
+    // 添加文件类型帮助信息
+    updateFileTypesHelp();
+    
+    // 添加文件类型输入框的自动完成功能
+    const fileTypesInput = document.getElementById('fileTypes');
+    fileTypesInput.addEventListener('focus', () => {
+      if (!fileTypesInput.value) {
+        fileTypesInput.value = DEFAULT_CONFIG.fileTypes;
+      }
+    });
+    
   } catch (error) {
     console.error('加载配置失败:', error);
     showStatus(chrome.i18n.getMessage('loadConfigError'), 'error');

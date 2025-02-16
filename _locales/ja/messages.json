@@ -18,7 +18,7 @@
     "message": "ブラウザのダウンロードを制御"
   },
   "takeOverDownloadsDesc": {
-    "message": "有効にすると、すべてのダウンロードがaria2で処理されます"
+    "message": "有効にすると、すべてのダウンロードがaria2によって制御されます"
   },
   "connectionSettings": {
     "message": "接続設定"
@@ -84,10 +84,34 @@
     "message": "リソース検出設定"
   },
   "fileTypesLabel": {
-    "message": "許可されるファイルタイプ："
+    "message": "サポートされているファイルタイプ"
   },
   "fileTypesPlaceholder": {
-    "message": "例: mp4,mp3,zip,rar,exe,pdf"
+    "message": "カンマ区切りでファイル拡張子を入力"
+  },
+  "fileTypesSettingHelp": {
+    "message": "インターセプトするファイルタイプを設定"
+  },
+  "videoFiles": {
+    "message": "動画ファイル"
+  },
+  "audioFiles": {
+    "message": "音声ファイル"
+  },
+  "imageFiles": {
+    "message": "画像ファイル"
+  },
+  "documentFiles": {
+    "message": "文書ファイル"
+  },
+  "textFiles": {
+    "message": "テキストファイル"
+  },
+  "archiveFiles": {
+    "message": "圧縮ファイル"
+  },
+  "executableFiles": {
+    "message": "実行可能ファイル"
   },
   "enableSniffingLabel": {
     "message": "リソース検出を有効化"
@@ -163,9 +187,6 @@
   "fileTypesSettingLabel": {
     "message": "ファイルタイプ設定"
   },
-  "fileTypesSettingHelp": {
-    "message": "ダウンロードマネージャーで管理するファイルタイプを選択"
-  },
   "fileTypeImages": {
     "message": "画像フォーマット"
   },
@@ -186,5 +207,14 @@
   },
   "fileTypeFonts": {
     "message": "フォントファイル"
+  },
+  "toggleBrowserControl": {
+    "message": "ダウンロード制御を切り替え"
+  },
+  "enableBrowserControl": {
+    "message": "ダウンロード制御を有効化"
+  },
+  "disableBrowserControl": {
+    "message": "ダウンロード制御を無効化"
   }
 } 
