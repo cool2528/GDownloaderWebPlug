@@ -40,3 +40,16 @@
    - 文件类型: 设置需要管理的文件类型
 
 
+### 快速使用
+
+1. 创建新版本：
+   ```bash
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+
+2. 检查 GitHub Actions 标签页查看构建状态
+
+3. 在 Releases 页面找到自动生成的扩展包
+
+

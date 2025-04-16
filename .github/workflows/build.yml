@@ -1,0 +1,82 @@
+name: 构建与发布Chrome扩展
+
+on:
+  push:
+    tags:
+      - 'v*' # 当推送带v开头的标签时触发，如v1.0.0
+    branches:
+      - main # 当推送到main分支时也会触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v3
+      
+      - name: 设置Node.js环境
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: 安装依赖
+        run: |
+          if [ -f "package.json" ]; then
+            npm install
+          fi
+      
+      - name: 构建扩展(如果有构建脚本)
+        run: |
+          if [ -f "package.json" ] && grep -q "\"build\"" "package.json"; then
+            npm run build
+          fi
+      
+      - name: 创建ZIP压缩包
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/v}"
+          if [[ "$GITHUB_REF" != refs/tags/* ]]; then
+            VERSION=$(date +'%Y%m%d%H%M%S')
+          fi
+          
+          # 创建临时目录并复制所需文件
+          mkdir -p build
+          
+          # 复制主要文件和目录
+          cp manifest.json build/
+          cp *.js build/ 2>/dev/null || :
+          cp *.css build/ 2>/dev/null || :
+          cp *.html build/ 2>/dev/null || :
+          cp -r icons build/ 2>/dev/null || :
+          cp -r _locales build/ 2>/dev/null || :
+          cp -r utils build/ 2>/dev/null || :
+          cp -r popup build/ 2>/dev/null || :
+          cp -r shared build/ 2>/dev/null || :
+          cp -r options build/ 2>/dev/null || :
+          
+          # 删除不需要的开发文件(如果有)
+          rm -rf build/**/*.map build/**/*.ts
+          
+          # 创建ZIP包
+          cd build
+          zip -r ../GDownloaderWebPlug-${VERSION}.zip *
+          cd ..
+          
+          echo "EXTENSION_VERSION=${VERSION}" >> $GITHUB_ENV
+          echo "EXTENSION_ZIP=GDownloaderWebPlug-${VERSION}.zip" >> $GITHUB_ENV
+      
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v3
+        with:
+          name: extension-package
+          path: GDownloaderWebPlug-${{ env.EXTENSION_VERSION }}.zip
+      
+      - name: 创建GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: GDownloaderWebPlug-${{ env.EXTENSION_VERSION }}.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
