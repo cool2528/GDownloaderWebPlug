@@ -7,6 +7,10 @@ on:
     branches:
       - main 
 
+# 添加权限配置
+permissions:
+  contents: write  # 这允许工作流创建和修改releases
+
 jobs:
   build:
     runs-on: ubuntu-latest
